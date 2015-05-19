@@ -19,7 +19,7 @@ angular
         	return gameinfo;
         }
         function playIt() {
-        	var ref = new Firebase ("https://tictacandre.firebaseio.com/Gameboard");
+        	var ref = new Firebase ("https://tictacandre.firebaseio.com/grid");
         	var boxes = $firebaseArray(ref);
         	return boxes;
         }
@@ -65,8 +65,8 @@ angular
     
     ]
     function cellClicked ($index) {
-    	console.log(self.boxes[$index].cell)
-    	if (self.boxes[$index].cell == "") {
+    	console.log($index)
+    	if (self.boxes[$index].cell == undefined) {
     		console.log(self.boxes[$index].cell);
     		self.boxes[$index].cell = "X";
     		self.gameinfo[0].turn++;
